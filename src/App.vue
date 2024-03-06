@@ -12,6 +12,11 @@ export default {
   mounted() {
     console.log('Component mounted')
   },
+  computed: {
+    descriptionIsOtra() {
+      return this.description === 'Otra!'
+    }
+  },
   methods: {
     increaseVisitingNumber() {
       this.visitingNumber++
@@ -50,6 +55,8 @@ export default {
     <button @click="resetData">Resetear datos</button>
     <p>Visitas: {{ visitingNumber }}</p>
   </div>
+  <ImageVue v-if="descriptionIsOtra" />
+  <p v-else>Pues no hay otra imagen Manin</p>
 </template>
 
 <style>
